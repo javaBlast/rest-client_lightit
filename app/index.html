@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="restApp">
+<head>
+    <meta charset="utf-8">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css">
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="public/js/custom.js"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="app.css">
+
+
+</head>
+<body >
+<nav id="navbar" ng-controller="restAppController">
+    <ul class="list-group">
+        <div class="list-group-item">
+            <li><a ng-href="#/"> Index '/' </a></li>
+            <li><a ng-href="#/catalog"> Catalog '/catalog' </a></li>
+            <li class="right"><a ng-href="#/auth"> Auth '/auth' </a></li>
+        </div>
+
+    </ul>
+</nav>
+
+
+<div class="container">
+
+    <div ui-view></div>
+</div>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="product/productCtrl.js"></script>
+<script src="product/product.services.js"></script>
+<script src="catalog/catalog.controller.js"></script>
+<script src="auth/auth.controller.js"></script>
+<script src="auth/session.service.js"></script>
+<script src="auth/auth.service.js"></script>
+</body>
+</html>

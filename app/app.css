@@ -1,0 +1,63 @@
+body {
+    font-family: 'Monaco for Powerline';
+}
+
+.navbar-fixed {
+    position: relative;
+    top: 3em;
+}
+
+
+/*----------------------
+  $NAVBAR
+    basic navbar styling
+  ----------------------*/
+
+nav {
+    padding-bottom: 15px;
+    height: 100%;
+    width: 100%;
+    color: #bbb;
+    background: #2e2e2e;
+    font-weight: bold;
+    letter-spacing: 0.025em;
+}
+
+nav ul {
+    text-align: center;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 0 3em;
+    line-height: 3em;
+    height: auto;
+}
+
+
+.comment-item {
+    margin: 1rem;
+}
+
+/*.list-group-item{*/
+    /*border: none;*/
+    /**/
+/*}*/
+
+
+/*.list-group-item li{*/
+    /*height: 66px;*/
+    /*padding: 0;*/
+/*}*/
+
+/*.card {*/
+    /*position: absolute;*/
+    /*overflow: hidden;*/
+    /*margin: 16px 0 16px 0;*/
+    /*padding: 1rem;*/
+    /*background-color: #fff;*/
+    /*transition: box-shadow .25s;*/
+    /*border-radius: 2px;*/
+/*@include z-depth(1)*/
+/*}*/
