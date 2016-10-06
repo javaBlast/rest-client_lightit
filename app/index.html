@@ -1,5 +1,6 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" ng-app="restApp">
+
 <head>
     <meta charset="utf-8">
     <title>My AngularJS App</title>
@@ -17,34 +18,55 @@
 
 
 </head>
-<body >
-<nav id="navbar" ng-controller="restAppController">
-    <ul class="list-group">
-        <div class="list-group-item">
-            <li><a ng-href="#/"> Index '/' </a></li>
-            <li><a ng-href="#/catalog"> Catalog '/catalog' </a></li>
-            <li class="right"><a ng-href="#/auth"> Auth '/auth' </a></li>
+
+<body>
+    <nav id="navbar">
+        <ul>
+            <li><a href="#/"> Index '/' </a></li>
+            <li class="right" ng-controller="authController"> <a href="#/" ng-show="getStatus" ng-click="logout()"> Logout</a>
+            </li>
+
+
+        </ul>
+    </nav>
+    <div class="row" ng-show="!getStatus">
+        <div class="col s12">
+            <div class="card-panel" ng-controller="authController">
+                <div>
+                    <input type="text" class="form-control" id="username" placeholder="Username" ng-model="user.username">
+                    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password">
+                    <a href="" class="btn btn-default" ng-click="login(user)"> Login</a>
+                    <a href="" class="btn btn-default" ng-click="register(user)"> Register</a>
+                </div>
+            </div>
         </div>
-
-    </ul>
-</nav>
-
-
-<div class="container">
-
-    <div ui-view></div>
-</div>
-
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="app.js"></script>
-<script src="product/productCtrl.js"></script>
-<script src="product/product.services.js"></script>
-<script src="catalog/catalog.controller.js"></script>
-<script src="auth/auth.controller.js"></script>
-<script src="auth/session.service.js"></script>
-<script src="auth/auth.service.js"></script>
+    </div>
+    <div class="container" ng-controller="productController">
+        <div class="text-center">
+            <div class="col-lg-6" ng-repeat="item in catalog">
+                <div>
+                    <img src="/public/img/{{item.img}}">
+                    <a href="#/product/{{item.id}}"> {{item.title}}
+                    </a>
+                </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <ui-view></ui-view>
+    </div>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="product/productCtrl.js"></script>
+    <script src="product/product.services.js"></script>
+    <script src="auth/auth.controller.js"></script>
+    <script src="auth/session.service.js"></script>
+    <script src="auth/auth.service.js"></script>
 </body>
+
 </html>

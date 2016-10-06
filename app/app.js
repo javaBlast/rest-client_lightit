@@ -7,15 +7,10 @@ var restApp = angular.module('restApp', [
 ]);
 
 restApp
-    .config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/');
+    .config(function($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise('/#');
 
         $stateProvider
-            .state('catalog', {
-                url: '/catalog',
-                templateUrl: 'catalog/partial-catalog.html',
-                controller: 'catalogController'
-            })
             .state('product', {
                 url: '/product/:id',
                 templateUrl: 'product/partial-product.html',
@@ -23,15 +18,15 @@ restApp
             })
             .state('auth', {
                 url: '/auth',
-                templateUrl: 'auth/partial-auth.html',
+                // templateUrl: 'auth/partial-auth.html',
                 controller: 'authController'
             })
-    })
+    });
 
-restApp.controller('restAppController', function ($rootScope, authService, sessionService) {
+restApp.run(['$rootScope', 'productsService', 'sessionService', 'authService',
+    function($rootScope, productsService, sessionService, authService, $scope) {
         $rootScope.getUser = sessionService.get('name');
         $rootScope.getStatus = authService.isLogged();
-        console.log($rootScope.getUser  , $rootScope.getStatus)
-});
-
-
+        console.log($rootScope.getUser, $rootScope.getStatus)
+    }
+]);

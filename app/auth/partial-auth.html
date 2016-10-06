@@ -3,13 +3,10 @@
         <div class="card-panel" ng-controller="authController">
             <div ng-show="loginStatus"><a href="#/auth/logout" ng-click="logout()">{{ username }} Logout</a></div>
             <div ng-hide="loginStatus">
-                <input type="text" class="form-control" id="username" placeholder="Username"
-                       ng-model="user.username">
-                <input type="password" class="form-control" id="password" placeholder="Password"
-                       ng-model="user.password">
+                <input type="text" class="form-control" id="username" placeholder="Username" ng-model="user.username">
+                <input type="password" class="form-control" id="password" placeholder="Password" ng-model="user.password">
                 <a href="#/catalog" class="btn btn-default" ng-click="login(user)"> Login</a>
                 <a href="#/catalog" class="btn btn-default" ng-click="register(user)"> Register</a>
-
             </div>
         </div>
     </div>
