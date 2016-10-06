@@ -1,7 +1,11 @@
 restApp.controller('authController', function($scope, $location, $http, authService, sessionService) {
     'use strict';
     $scope.username = sessionService.get('name');
-    $scope.isLogged = isLogged;
+
+
+    $scope.isLogged = function isLogged() {
+        authService.isLogged();
+    };
     $scope.login = function(user) {
         authService.login(user);
 
@@ -13,10 +17,5 @@ restApp.controller('authController', function($scope, $location, $http, authServ
 
     $scope.logout = function() {
         authService.logout();
-    }
-
-
-    function isLogged() {
-        return authService.isLogged();
     }
 });

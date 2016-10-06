@@ -26,7 +26,7 @@ restApp
 restApp.run(['$rootScope', 'productsService', 'sessionService', 'authService',
     function($rootScope, productsService, sessionService, authService, $scope) {
         $rootScope.getUser = sessionService.get('name');
-        $rootScope.getStatus = authService.isLogged();
+        $rootScope.getStatus = sessionService.get('user');
         console.log($rootScope.getUser, $rootScope.getStatus)
     }
 ]);

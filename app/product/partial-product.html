@@ -1,15 +1,4 @@
 <div class="row">
-    <div class="product-description col-lg-3">
-        <img src="/public/img/{{product.img}}">
-    </div>
-    <div class="col-lg-8">
-        <div class="product-text">
-            <h3> {{product.title}}</h3> {{product.text}}
-        </div>
-    </div>
-</div>
-<hr>
-<div class="row">
     <div class="input-field col s12">
         <label for="rate">Rate: {{comment.rate}}
         </label>
@@ -22,13 +11,13 @@
         <br>
         <textarea name="text" id="text" ng-model="comment.text" class="form-control" rows="3"></textarea>
         <br>
-        <button type="submit" ng-disabled="newcomment.$invalid" ng-click="newComment(product.id, comment)" class="btn btn-default">Add</button>
+        <button type="submit" ng-disabled="newcomment.$invalid" ng-click="newComment( comment)" class="btn btn-default">Add</button>
     </div>
 </div>
 <div class="row">
     <h3> Reviews </h3>
     <ul class="review-list list-group">
-        <li class="comment-item list-group-item  col-lg-12" ng-repeat="comment in comments">
+        <li class="comment-item list-group-item  col-lg-12" ng-controller="productController" ng-repeat="comment in comm ">
             <p class="username"> {{comment.created_by.username}}</p>
             <p class="rate-p"> Rate: {{comment.rate}} </p>
             <span> Comment: {{comment.text.substring(0,30)}} </span>

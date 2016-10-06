@@ -8,15 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css">
-
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="public/js/custom.js"></script>
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="app.css">
-
-
 </head>
 
 <body>
@@ -25,8 +22,6 @@
             <li><a href="#/"> Index '/' </a></li>
             <li class="right" ng-controller="authController"> <a href="#/" ng-show="getStatus" ng-click="logout()"> Logout</a>
             </li>
-
-
         </ul>
     </nav>
     <div class="row" ng-show="!getStatus">
@@ -43,13 +38,30 @@
     </div>
     <div class="container" ng-controller="productController">
         <div class="text-center">
-            <div class="col-lg-6" ng-repeat="item in catalog">
+            <div class="col-lg-6" ng-repeat="product in catalog">
                 <div>
                     <img src="/public/img/{{item.img}}">
-                    <a href="#/product/{{item.id}}"> {{item.title}}
-                    </a>
+                    <a href="#/product/{{item.id}}"> {{item.title}}</a>
+
                 </div>
-                </ul>
+                <div class="row">
+                    <div class="product-description col-lg-3">
+                        <img src="/public/img/{{product.img}}">
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="product-text">
+                            <h3> {{product.title}}</h3>
+                            {{product.text}}
+
+                            <p>
+
+                                <a href="#/product/{{product.id}}">Reviews</a>
+
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
